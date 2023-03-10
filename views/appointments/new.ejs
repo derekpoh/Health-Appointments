@@ -1,0 +1,48 @@
+<%- include("../partials/header") %>
+
+<h2>New Appointment</h2>
+
+<form action="/appointments" method="post">
+    <fieldset>
+        <label>Institution:
+        <select name="institution">
+          <option value="Alexandra Hospital">Alexandra Hospital</option>
+          <option value="Changi General Hospital">Changi General Hospital</option>
+          <option value="Khoo Teck Phuat Hospital">Khoo Teck Phuat Hospital</option>
+          <option value="National University Hospital">National University Hospital</option>
+          <option value="Ng Teng Fong General Hospital">Ng Teng Fong General Hospital</option>
+          <option value="Sengkang General Hospital">Sengkang General Hospital</option>
+          <option value="Singapore General Hospital">Singapore General Hospital</option>
+          <option value="Tan Tock Seng Hospital">Tan Tock Seng Hospital</option>
+        </select> </label>
+        <br/>
+        <label>Speciality:
+            <select name="speciality">
+              <option value="Cardiology">Cardiology</option>
+              <option value="Endocrine">Endocrine</option>
+              <option value="Gastroenterology">Gastroenterology</option>
+              <option value="Infectious Disease">Infectious Disease</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Pain Management">Pain Management</option>
+              <option value="Nephrology">Nephrology</option>
+            </select> </label>
+            <br/>
+             <label>Date: <input name="date" type="date"/></label>
+             <br/>
+             <label>Time slot:
+                <select name="timeslot">
+                  <option value="0900">09:00 am</option>
+                  <option value="0930">09:30 am</option>
+                  <option value="1000">10:00 am</option>
+                  <option value="1030">10:30 am</option>
+                  <option value="1100">11:00 am</option>
+                  <option value="1130">11:30 am</option>
+                  <option value="1200">12:00 pm</option>
+                </select> </label>
+             <br/>
+      <br/>
+      <input type="submit" value="Add Appointment">
+    </fieldset><br><br>
+  </form>
+
+<%- include("../partials/footer") %>

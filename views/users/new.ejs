@@ -1,0 +1,25 @@
+<%- include("../partials/header") %>
+
+<h2>Create New Account</h2>
+
+
+<form action="/users/login/create" method="post">
+  <fieldset>
+    <legend>Account</legend>
+    <label>Userid: <input name="userid" /></label>
+    <br/>
+    <label>Password: <input name="password" /></label>
+    <br/>
+    <label>Occupation:
+    <select name="occupation">
+      <option value="patient">Patient</option>
+      <option value="doctor">Doctor</option>
+    </select> </label>
+    <br/>
+    <input type="submit" value="Create">
+  </fieldset><br><br>
+
+  <a href = "/users/login">Login</a>
+</form>
+
+<%- include("../partials/footer") %>

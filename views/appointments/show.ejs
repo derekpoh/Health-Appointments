@@ -1,0 +1,21 @@
+<%- include("../partials/header") %>
+
+<section>
+    <div>Institution:</div>
+    <div><%= appointment.institution %></div><br/>
+    <div>Speciality:</div>
+    <div><%= appointment.speciality %></div><br/>
+    <div>Date:</div>
+    <div><%= appointment.date %></div><br/>
+    <div>Time Slot:</div>
+    <div><%=appointment.timeslot  %></div><br/>
+    <div>Medicine:</div>
+    <div></div><br/>
+    <div>Visit:</div>
+    <div></div><br/>
+</section>
+<br/>
+
+<td><a href="/appointments/">Appointment List</a></td>
+
+<%- include("../partials/footer") %>

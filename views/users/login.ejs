@@ -1,0 +1,18 @@
+<%- include("../partials/header") %>
+
+<h2>Login</h2>
+
+<h3><%= msg %></h3>
+<form action="/users/login" method="post">
+  <fieldset>
+    <legend>Login</legend>
+    <label>Userid: <input name="userid" /></label>
+    <br />
+    <label>Password: <input name="password" /></label>
+    <button>Login</button>
+  </fieldset><br><br>
+
+  <a href = "/users/login/create">Create account</a>
+</form>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,26 @@
+<%- include("../partials/header") %>
+
+<h2>Appointment List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Institution</th>
+            <th>Speciality</th>
+            <th>Date</th>
+            <th>Time slot</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% appointments.forEach((a) => {%>
+            <tr>
+                <td><%= a.institution %></td>
+                <td><%= a.speciality %></td>
+                <td><%= a.date %></td>
+                <td><%= a.timeslot %></td>
+                <td><a href="/appointments/<%= a._id %>">Details</a></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<%- include("../partials/footer") %>
