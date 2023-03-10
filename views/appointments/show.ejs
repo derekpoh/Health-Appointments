@@ -1,21 +1,52 @@
 <%- include("../partials/header") %>
 
+<a href="/appointments/">Appointment List</a>
+<br/><br/>
 <section>
     <div>Institution:</div>
     <div><%= appointment.institution %></div><br/>
     <div>Speciality:</div>
     <div><%= appointment.speciality %></div><br/>
     <div>Date:</div>
-    <div><%= appointment.date %></div><br/>
+    <div><%= appointment.date.toDateString() %></div><br/>
     <div>Time Slot:</div>
-    <div><%=appointment.timeslot  %></div><br/>
+    <div><%=appointment.timeslot  %></div>
+    <br/>
     <div>Medicine:</div>
-    <div></div><br/>
-    <div>Visit:</div>
-    <div></div><br/>
+    <ul>
+        <%- appointment.medicine.map(m =>
+        `<li>${m.name}: ${m.regimen}</li>`
+        ).join(" ")%>
+    </ul>
 </section>
-<br/>
 
-<td><a href="/appointments/">Appointment List</a></td>
+    <form method="POST" action="/appointments/<%= appointment._id %>/medicines">
+        <select name="medicineName">
+            <%- medicines.map(m =>
+            `<option value="${m._id}"> ${m.name} </option>`
+            ) %>
+        </select>
+        <input type="submit" value="Add Med">
+    </form>
+    <br/><br/>
+    <form method="POST" action="/appointments/<%= appointment._id %>/visits">
+    <label>Visit:</label>
+    <br>
+    <textarea name="content"></textarea>
+    <br>
+    <input type="submit" value="Add Visit">
+    </form><br>
 
+    <label>Visit Log:</label>
+    <table>
+        <tbody>
+                <% appointment.visit.forEach((v) => { %>
+                <tr>
+                    <td> <%= v.content %> </td>
+                    <td> <%= v.createdAt.toDateString() %> </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+    
 <%- include("../partials/footer") %>

@@ -1,0 +1,49 @@
+<%- include("../partials/header") %>
+
+<h2>Add Medicine</h2>
+
+<form action="/medicines" method="post">
+    <fieldset>
+        <br/>
+        <label>Name: <input name="name" type="text"/></label>
+        <br/>
+        <label>Regimen: <input name="regimen" type="text"/></label>
+        <br/>
+        <label>Speciality:
+            <select name="speciality">
+              <option value="Cardiology">Cardiology</option>
+              <option value="Endocrine">Endocrine</option>
+              <option value="Gastroenterology">Gastroenterology</option>
+              <option value="Infectious Disease">Infectious Disease</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Pain Management">Pain Management</option>
+              <option value="Nephrology">Nephrology</option>
+            </select> </label>
+      <br/>
+      <input type="submit" value="Add Medicine">
+    </fieldset><br>
+  </form>
+<br>
+<h2>Medicine List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Speciality</th>
+            <th>Regimen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% medicines.forEach((m) => {%>
+            <tr>
+                <td><%= m.name %></td>
+                <td><%= m.speciality %></td>
+                <td><%= m.regimen %></td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+
+<%- include("../partials/footer") %>

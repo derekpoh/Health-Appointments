@@ -1,6 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const visitSchema = new Schema ({
+    content: {
+        type: String,
+    }
+}, {
+    timestamps: true,
+})
+
 const appointmentSchema = new Schema (
     {
         institution: {
@@ -15,15 +23,14 @@ const appointmentSchema = new Schema (
         timeslot: {
             type: Number
         },
-        medicine: {
-            type: [String]
-        },
-        visit: {
-            type: [String]
-        }
+        medicine: [{
+            type: Schema.Types.ObjectId,
+            ref: "Medicine"
+        }],
+        visit: [visitSchema]
     }, {
         timestamps: true
     }
-)
+);
 
 module.exports = mongoose.model("Appointment", appointmentSchema)

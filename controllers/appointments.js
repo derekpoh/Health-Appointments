@@ -1,4 +1,5 @@
 const Appointment = require("../models/appointment")
+const Medicine = require("../models/medicine")
 
 
 const index = async (req,res) => {
@@ -17,9 +18,19 @@ const create = (req,res) => {
 }
 
 const show = async (req,res) => {
+    const appointment = await Appointment.findById(req.params.id).populate("medicine").exec();
+    const medicines = await Medicine.find(
+        {_id: {$nin: appointment.medicine}}
+        ).exec()
+    const context = {appointment, medicines};
+    res.render("appointments/show", context);
+}
+
+const addVisit = async (req,res) => {
     const appointment = await Appointment.findById(req.params.id).exec();
-    const context = {appointment}
-    res.render("appointments/show", context)
+    appointment.visit.push(req.body);
+    appointment.save();
+    res.redirect(`/appointments/${appointment._id}`)
 }
 
 module.exports = {
@@ -27,4 +38,5 @@ module.exports = {
     new: newAppointment,
     create,
     show,
+    addVisit
 }
