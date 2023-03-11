@@ -19,6 +19,7 @@ const login = async (req,res) => {
     }
     bcrypt.compare(password, user.password, (err, result) => {
         if (result) {
+            req.session.userid = user._id;
             res.redirect("/appointments")
         } else {
             const context = {msg: "ENTER VALID PASSWORD"}

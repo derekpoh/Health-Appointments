@@ -1,0 +1,26 @@
+<%- include("../partials/header") %>
+
+<h2>Edit Appointment</h2>
+
+<form action="/appointments/<%= appointment._id %>?_method=PUT" method="POST">
+    <fieldset>
+             <label>Date: <input name="date" type="date"/></label>
+             <br/>
+             <label>Time slot:
+                <select name="timeslot">
+                  <option value="0900">09:00 am</option>
+                  <option value="0930">09:30 am</option>
+                  <option value="1000">10:00 am</option>
+                  <option value="1030">10:30 am</option>
+                  <option value="1100">11:00 am</option>
+                  <option value="1130">11:30 am</option>
+                  <option value="1200">12:00 pm</option>
+                </select> </label>
+             <br/>
+      <br/>
+      
+      <input type="submit" value="Update Appointment">
+    </fieldset><br><br>
+  </form>
+
+<%- include("../partials/footer") %>

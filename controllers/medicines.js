@@ -5,14 +5,14 @@ const Appointment = require("../models/appointment");
 
 const newMedicine = async (req,res) => {
     const medicines = await Medicine.find().sort("speciality").exec();
-    const context = {medicines}
+    const context = {title:"Add Medicine", medicines}
     res.render("medicines/new", context)
 };
 
 const create = (req,res) => {
     Medicine.create(req.body);
     res.redirect("medicines/new")
-};
+};  
 
 const addToMedicine = async (req,res) => {
     const appointment = await Appointment.findById(req.params.id).exec();

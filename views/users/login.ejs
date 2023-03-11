@@ -1,8 +1,16 @@
-<%- include("../partials/header") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 2</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
 
 <h2>Login</h2>
 
-<h3><%= msg %></h3>
 <form action="/users/login" method="post">
   <fieldset>
     <legend>Login</legend>
@@ -11,8 +19,10 @@
     <label>Password: <input name="password" /></label>
     <button>Login</button>
   </fieldset><br><br>
-
+  
   <a href = "/users/login/create">Create account</a>
 </form>
+<h3><%= msg %></h3>
 
-<%- include("../partials/footer") %>
+</body>
+</html>

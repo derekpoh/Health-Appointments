@@ -1,6 +1,6 @@
 <%- include("../partials/header") %>
 
-<a href="/appointments/">Appointment List</a>
+<h1>Appointment Details</h1> 
 <br/><br/>
 <section>
     <div>Institution:</div>
@@ -49,4 +49,5 @@
         </tbody>
     </table>
     
+    <a href="/appointments/<%=appointment._id%>/delete">Delete Appointment</a>
 <%- include("../partials/footer") %>
