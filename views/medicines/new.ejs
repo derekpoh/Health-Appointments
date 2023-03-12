@@ -2,8 +2,7 @@
 
 <h2>Add Medicine</h2>
 
-<form action="/medicines" method="post">
-    <fieldset>
+<form id="add-medicine-form" action="/medicines" method="post">
         <br/>
         <label>Name: <input name="name" type="text"/></label>
         <br/>
@@ -21,24 +20,24 @@
             </select> </label>
       <br/>
       <input type="submit" value="Add Medicine">
-    </fieldset><br>
+<br><br><br>
   </form>
 <br>
 <h2>Medicine List</h2>
-<table>
+<table id="badge-container">
     <thead>
         <tr>
             <th>Name</th>
-            <th>Speciality</th>
             <th>Regimen</th>
+            <th>Speciality</th>
         </tr>
     </thead>
     <tbody>
         <% medicines.forEach((m) => {%>
             <tr>
                 <td><%= m.name %></td>
-                <td><%= m.speciality %></td>
                 <td><%= m.regimen %></td>
+                <td><%= m.speciality %></td>
             </tr>
         <% }) %>
     </tbody>

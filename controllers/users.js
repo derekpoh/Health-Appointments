@@ -29,16 +29,27 @@ const login = async (req,res) => {
 }           
 
 const newAccount = (req,res) => {
-    res.render("users/new")
+    const context = {msg: ""}
+    res.render("users/new", context)
 }
 
 const create = async (req,res) => {
-    bcrypt.hash(req.body.password, saltRounds, async (err, hash) => {
-        const user = await User.create({userid:req.body.userid, password:hash, occupation:req.body.occupation});
-        res.redirect("/users/login")
-    })
+    try {
+        const user = await User.create(req.body);
+        seed(user);
+        res.redirect("/users/login") ;   
+    } catch (err) {
+        const context = {msg: "USERID/PASSWORD REQUIRED"}
+        res.render("users/new", context)
+    }
 }
 
+const seed = async (user) => {
+        bcrypt.hash(user.password, saltRounds, async (err, hash) => {
+            user.password = hash;
+            user.save()
+        })
+    }
 
 
 module.exports = {

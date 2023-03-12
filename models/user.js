@@ -5,12 +5,15 @@ const userSchema = new Schema(
     {
         userid: {
             type: String,
+            required: true
         },
         password: {
             type: String,
+            required: true
         },
         occupation: {
             type: String,
+            required: true
         },
     }, {
         timestamps: true
