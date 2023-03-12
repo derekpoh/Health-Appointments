@@ -10,10 +10,10 @@
 <body>
 
   <nav>
-   <h3>Welcome, User</h3>
-    <a href="/medicines/new"	<%- title === 'Add Medicine' ? 'class="active"' : '' %>>
-		ADD MEDICINE</a>
-    <a href="/appointments/new" <%- title === 'Add Appointment' ? 'class="active"' : '' %>>ADD APPOINTMENT</a>
-    <a href="/appointments" <%- title === 'All Appointments' ? 'class="active"' : '' %>>ALL APPOINTMENTS</a>
+    <a href="/medicines/new"	<%- title === 'Medicine List' ? 'class="active"' : '' %>>
+      MEDICINE LIST</a>
+      <a href="/appointments/new" <%- title === 'Add Appointment' ? 'class="active"' : '' %>>ADD APPOINTMENT</a>
+      <a href="/appointments" <%- title === 'All Appointments' ? 'class="active"' : '' %>>ALL APPOINTMENTS</a>
+      <a id="welcome" href="/users/logout">Log Out</a>
   </nav>
 

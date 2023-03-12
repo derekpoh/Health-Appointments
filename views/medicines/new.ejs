@@ -1,30 +1,9 @@
 <%- include("../partials/header") %>
 
-<h2>Add Medicine</h2>
 
-<form id="add-medicine-form" action="/medicines" method="post">
-        <br/>
-        <label>Name: <input name="name" type="text"/></label>
-        <br/>
-        <label>Regimen: <input name="regimen" type="text"/></label>
-        <br/>
-        <label>Speciality:
-            <select name="speciality">
-              <option value="Cardiology">Cardiology</option>
-              <option value="Endocrine">Endocrine</option>
-              <option value="Gastroenterology">Gastroenterology</option>
-              <option value="Infectious Disease">Infectious Disease</option>
-              <option value="Neurology">Neurology</option>
-              <option value="Pain Management">Pain Management</option>
-              <option value="Nephrology">Nephrology</option>
-            </select> </label>
-      <br/>
-      <input type="submit" value="Add Medicine">
-<br><br><br>
-  </form>
-<br>
-<h2>Medicine List</h2>
-<table id="badge-container">
+<section class="medlist">
+<h1>Medicine List</h1>
+<table id="badge-container" >
     <thead>
         <tr>
             <th>Name</th>
@@ -42,7 +21,32 @@
         <% }) %>
     </tbody>
 </table>
+</section>
 
-
+<%= msg %>
+<section class="medlist">
+<h1>Add Medicine</h1>
+<form id="add-medicine-form" action="/medicines" method="post">
+    <fieldset>
+        <label>Name: <input autocomplete="off" name="name" type="text"/></label>
+        <br/>
+        <label>Regimen: <input autocomplete="off" name="regimen" type="text"/></label>
+        <br/>
+        <label>Speciality:
+            <select name="speciality">
+              <option value="Cardiology">Cardiology</option>
+              <option value="Endocrine">Endocrine</option>
+              <option value="Gastroenterology">Gastroenterology</option>
+              <option value="Infectious Disease">Infectious Disease</option>
+              <option value="Neurology">Neurology</option>
+              <option value="Pain Management">Pain Management</option>
+              <option value="Nephrology">Nephrology</option>
+            </select> </label>
+      <br/>
+      <input type="submit" value="Add Medicine">
+<br><br>
+  </form>
+</fieldset>
+</section>
 
 <%- include("../partials/footer") %>

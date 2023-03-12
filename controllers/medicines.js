@@ -5,7 +5,7 @@ const Appointment = require("../models/appointment");
 
 const newMedicine = async (req,res) => {
     const medicines = await Medicine.find().sort("speciality").exec();
-    const context = {title:"Add Medicine", medicines}
+    const context = {title:"Medicine List", msg:"", medicines}
     res.render("medicines/new", context)
 };
 

@@ -20,6 +20,7 @@ const login = async (req,res) => {
     bcrypt.compare(password, user.password, (err, result) => {
         if (result) {
             req.session.userid = user._id;
+            req.session.occupation = user.occupation;
             res.redirect("/appointments")
         } else {
             const context = {msg: "ENTER VALID PASSWORD"}
@@ -39,8 +40,9 @@ const create = async (req,res) => {
         seed(user);
         res.redirect("/users/login") ;   
     } catch (err) {
-        const context = {msg: "USERID/PASSWORD REQUIRED"}
+        const context = {msg: err}
         res.render("users/new", context)
+        console.log(err)
     }
 }
 
@@ -51,10 +53,17 @@ const seed = async (user) => {
         })
     }
 
+const logout = (req,res) => {
+    req.session.userid = "";
+    req.session.occupation = "";
+    res.redirect("/")
+}
+
 
 module.exports = {
     index,
     new: newAccount,
     create,
-    login
+    login,
+    logout,
 }

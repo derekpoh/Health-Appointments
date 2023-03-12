@@ -2,8 +2,8 @@
 
 <h2>Edit Appointment</h2>
 
-<form action="/appointments/<%= appointment._id %>?_method=PUT" method="POST">
-    <fieldset>
+<form action="/appointments/<%= appointment._id %>?_method=PUT" method="POST" id="add-medicine-form" >
+    <fieldset >
              <label>Date: <input name="date" type="date"/></label>
              <br/>
              <label>Time slot:
@@ -20,6 +20,7 @@
       <br/>
       
       <input type="submit" value="Update Appointment">
+      <button><a href="/appointments/" style="text-decoration:none">Cancel</a></button>
     </fieldset><br><br>
   </form>
 

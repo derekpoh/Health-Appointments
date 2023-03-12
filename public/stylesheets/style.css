@@ -6,20 +6,24 @@
 
 body {
   margin: 0;
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: 
-    "nav"
-    "main"
 }
+
+h1 {
+  padding-left: 10px
+}
+
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: greenyellow;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
+}
+
+#welcome {
+  position: absolute;
+  right: 50px
 }
 
 nav > img {
@@ -59,28 +63,34 @@ nav > a.active {
   cursor: default;
 }
 
-#new-form {
+.medlist {
+  margin: 0;
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 22rem));
+  grid-template-rows: 50px 1fr;
+  grid-template-areas: 
+    "nav"
+    "main"
 }
 
-#new-form *,
-#add-review-form *,
+#add-appointments-form *,
 #add-medicine-form * {
   font-size: 20px;
   padding: 5px;
   border-radius: 5px;
 }
 
-#new-form input[type="submit"] {
-  grid-column: span 2;
-  width: 10rem;
-  margin-left: auto;
-}
-
 table {
   font-size: 20px;
+}
+
+#visit {
+  font-size: 15px;
+  border: 1px solid black;
+}
+
+#visitdate {
+  font-size: 10px;
+  border: 1px solid black;
 }
 
 table thead th {
@@ -93,52 +103,9 @@ table td {
   text-align: center;
 }
 
-#list td:nth-child(2), #list td:nth-child(3){
-  min-width: 100px;
-}
-
-#list a {
-  border-radius: 4px;
-  background-color: #B8C0C2;
-  padding: 4px;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-#list a:hover {
-  background-color: white;
-}
-
-#show-page {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-}
-
-#show-page div:nth-child(even) {
-  font-weight: bold;
-}
-
-#add-review-form {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-#add-review-form input[type="submit"],
-#add-medicine-form input[type="submit"]  {
-  width: 10rem;
-  grid-column: 2 / 3;
-}
-
-hr {
-  color: #424748
-}
 
 #badge-container {
   padding: 1rem;
-  border: 2px solid #B8C0C2;
   border-radius: .5rem;
   margin: .5rem 0 2rem;
-}
+} 

@@ -1,7 +1,7 @@
 <%- include("../partials/header") %>
 
-<h2>Appointment List</h2>
-<table id="badge-container">
+<h1>Appointment List</h1>
+<table id="badge-container" >
     <thead>
         <tr>
             <th>Institution</th>
@@ -15,7 +15,7 @@
             <tr>
                 <td><%= a.institution %></td>
                 <td><%= a.speciality %></td>
-                <td><%= a.date %></td>
+                <td><%= a.date.toDateString() %></td>
                 <td><%= a.timeslot %></td>
                 <td><a href="/appointments/<%= a._id %>">Details</a></td>
                 <td><a href="/appointments/<%= a._id %>/edit">Update Date/Timeslot</a></td>

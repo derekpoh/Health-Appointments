@@ -5,11 +5,12 @@ const userSchema = new Schema(
     {
         userid: {
             type: String,
-            required: true
+            required: [true, "USERID IS REQUIRED"],
+            unique: [true, "USERID IS ALREADY IN USE"]
         },
         password: {
             type: String,
-            required: true
+            required: [true, "PASSWORD is REQUIRED"]
         },
         occupation: {
             type: String,

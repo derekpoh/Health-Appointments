@@ -11,8 +11,17 @@ const isAuth = async (req,res,next) => {
     }
 }
 
+const occupationAuth = async (req,res,next) => {
+    if (req.session.occupation === "doctor") {
+        next()
+    } else {
+        res.status(403).send("Only Doctors may access this function");
+    }
+}
+
+
 router.get("/medicines/new", isAuth, medicinesCtrl.new);
-router.post("/medicines", isAuth, medicinesCtrl.create);
-router.post("/appointments/:id/medicines", isAuth, medicinesCtrl.addToMedicine)
+router.post("/medicines", isAuth, occupationAuth, medicinesCtrl.create);
+router.post("/appointments/:id/medicines", isAuth, occupationAuth, medicinesCtrl.addToMedicine)
 
 module.exports = router;
