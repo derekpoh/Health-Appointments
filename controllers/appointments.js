@@ -55,11 +55,6 @@ const deleteAppointment = async (req,res) => {
 
 const edit = async (req,res) => {
     const appointment = await Appointment.findById(req.params.id).exec();
-    // const dateArray = appointment.date.toLocaleDateString().split("/");
-    // const date = `${dateArray[2]}-${dateArray[0]}-${dateArray[1]}`;
-    let date = appointment.date;
-    date = Date()
-    console.log (date)
     context = {title:"", appointment};
     res.render("appointments/edit", context);
 }
