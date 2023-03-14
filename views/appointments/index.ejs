@@ -1,5 +1,6 @@
 <%- include("../partials/header") %>
 
+<section class="appointmentlist">
 <h1>Appointment List</h1>
 <table id="badge-container" >
     <thead>
@@ -17,11 +18,12 @@
                 <td><%= a.speciality %></td>
                 <td><%= a.date.toDateString() %></td>
                 <td><%= a.timeslot %></td>
-                <td><a href="/appointments/<%= a._id %>">Details</a></td>
-                <td><a href="/appointments/<%= a._id %>/edit">Update Date/Timeslot</a></td>
+                <td id="mainpage"><a href="/appointments/<%= a._id %>">Details</a></td>
+                <td id="mainpage"><a href="/appointments/<%= a._id %>/edit">Update Date/Timeslot</a></td>
             </tr>
         <% }) %>
     </tbody>
 </table>
+</section>
 
 <%- include("../partials/footer") %>

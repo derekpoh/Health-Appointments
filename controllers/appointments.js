@@ -12,9 +12,13 @@ const newAppointment = (req,res) => {
     res.render("appointments/new", {title:"Add Appointment"})
 }
 
-const create = (req,res) => {
-    Appointment.create(req.body);
+const create = async (req,res) => {
+    try {
+    await Appointment.create(req.body);
     res.redirect("/appointments/");
+    } catch (err) {
+        res.redirect("/appointments/new");
+    }
 }
 
 const show = async (req,res) => {
@@ -27,10 +31,15 @@ const show = async (req,res) => {
 }
 
 const addVisit = async (req,res) => {
-    const appointment = await Appointment.findById(req.params.id).exec();
-    appointment.visit.push(req.body);
-    appointment.save();
-    res.redirect(`/appointments/${appointment._id}`)
+    try {
+        const appointment = await Appointment.findById(req.params.id).exec();
+        appointment.visit.push(req.body);
+        await appointment.save();
+        res.redirect(`/appointments/${appointment._id}`)
+    } catch (err) {
+        const appointment = await Appointment.findById(req.params.id).exec();
+        res.redirect(`/appointments/${appointment._id}`)
+    }
 }
 
 const deletePrompt = async (req,res) => {
@@ -45,15 +54,29 @@ const deleteAppointment = async (req,res) => {
 }
 
 const edit = async (req,res) => {
-    const appointment = await Appointment.findById(req.params.id).exec();;
-    context = {title:"", appointment}
-    res.render("appointments/edit", context)
+    const appointment = await Appointment.findById(req.params.id).exec();
+    // const dateArray = appointment.date.toLocaleDateString().split("/");
+    // const date = `${dateArray[2]}-${dateArray[0]}-${dateArray[1]}`;
+    let date = appointment.date;
+    date = Date()
+    console.log (date)
+    context = {title:"", appointment};
+    res.render("appointments/edit", context);
 }
 
 const update = async (req,res) => {
-    const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body, {new:true}).exec();
-    res.redirect("/appointments/");
+    try {
+        for (let key in req.body) {
+            if (req.body[key] === "") delete req.body[key];
+          }
+        const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body, {new:true}).exec();
+        res.redirect("/appointments/");
+    } catch (err) {
+        console.log("error")
+        res.redirect("/appointments/");
+    }
 }
+
 
 module.exports = {
     index,

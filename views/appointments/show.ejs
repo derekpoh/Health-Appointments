@@ -1,7 +1,7 @@
 <%- include("../partials/header") %>
 
 <h1>Appointment Details</h1> 
-<br/><br/>
+
 <section id="badge-container"> 
     <div>Institution:</div>
     <div><%= appointment.institution %></div><br/>
@@ -20,12 +20,12 @@
     </ul>
     
     <form method="POST" action="/appointments/<%= appointment._id %>/medicines">
-        <select name="medicineName">
+        <select name="medicineName" id="font">
             <%- medicines.map(m =>
-            `<option value="${m._id}"> ${m.name} </option>`
+            `<option value="${m._id}" id="font"> ${m.name} </option>`
             ) %>
         </select>
-        <input type="submit" value="Add Med">
+        <input id="font" type="submit" value="Add Med">
     </form>
 </section>
 
@@ -33,25 +33,31 @@
     <form method="POST" action="/appointments/<%= appointment._id %>/visits">
     <label>Visit:</label>
     <br>
-    <textarea name="content"></textarea>
+    <textarea name="content" cols="45" rows="6"></textarea>
     <br>
-    <input type="submit" value="Add Visit">
+    <input id="font" type="submit" value="Add Visit">
     </form><br>
     <label>Visit Log:</label>
+    <% if (appointment.visit.length) { %>
     <table id="visit">
-        <tbody id="visit">
-            <% appointment.visit.forEach((v) => { %>
+        <tbody id="visit">     
+               <% appointment.visit.forEach((v) => { %>
                 <tr id="visit">
                     <td id="visit"> <%= v.content %> </td>
                     <td id="visitdate"> <%= v.createdAt.toDateString() %> </td>
                 </tr>
-                <% }) %>
+                <% }) 
+            } else { %>
+                <h5>No logs </h5>
+           <% } %>
+
             </tbody>
         </table>
+
     </section>
         
     <button>
-        <a style="text-decoration:none" href="/appointments/<%=appointment._id%>/delete">
+        <a id="font" style="text-decoration:none" href="/appointments/<%=appointment._id%>/delete">
             Delete Appointment
         </a>
     </button>

@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const visitSchema = new Schema ({
     content: {
         type: String,
+        required: true,
     }
 }, {
     timestamps: true,
@@ -13,15 +14,19 @@ const appointmentSchema = new Schema (
     {
         institution: {
             type: String,
+            required: true
         },
         speciality: {
             type: String,
+            required: true
         },
         date: {
-            type: Date
+            type: Date,
+            required: true,
         },
         timeslot: {
-            type: Number
+            type: String,
+            required: true
         },
         medicine: [{
             type: Schema.Types.ObjectId,

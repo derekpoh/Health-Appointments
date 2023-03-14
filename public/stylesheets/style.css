@@ -12,6 +12,9 @@ h1 {
   padding-left: 10px
 }
 
+h3 {
+  color: red
+}
 
 body > nav {
   grid-area: nav;
@@ -24,26 +27,6 @@ body > nav {
 #welcome {
   position: absolute;
   right: 50px
-}
-
-nav > img {
-  width: 34px;
-  object-fit: contain;
-  margin-right: auto;
-}
-
-body > main {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #E8ECEB;
-  padding: 20px;
-  overflow-y: scroll;
-}
-
-body > main h1:first-child {
-  margin-bottom: 50px;
 }
 
 nav > a {
@@ -63,7 +46,7 @@ nav > a.active {
   cursor: default;
 }
 
-.medlist {
+.medlist, .appointmentlist {
   margin: 0;
   display: grid;
   grid-template-rows: 50px 1fr;
@@ -105,7 +88,25 @@ table td {
 
 
 #badge-container {
+  font-size: 20px;
   padding: 1rem;
   border-radius: .5rem;
   margin: .5rem 0 2rem;
 } 
+
+#form {
+  display: inline-block;
+}
+
+#cancelbutton {
+  position: relative;
+  right: 30px;
+}
+
+#font {
+  font-size: 18px;
+}
+
+#mainpage {
+  font-size: 15px;
+}

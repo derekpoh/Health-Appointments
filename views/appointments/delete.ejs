@@ -2,7 +2,7 @@
 
 <h1>Appointment Details</h1> 
 <br/><br/>
-<section>
+<section id="add-medicine-form"> 
     <div>Institution:</div>
     <div><%= appointment.institution %></div><br/>
     <div>Speciality:</div>
@@ -12,12 +12,12 @@
     <div>Time Slot:</div>
     <div><%=appointment.timeslot  %></div>
     <br/>
+    
+    <h3>Delete Appointment? (Cannot be undone)</h3>
+    <form method="POST" action="/appointments/<%= appointment._id %>?_method=DELETE" id="form">
+        <input type="submit" value="Delete">
+    </form>
+    <button><a href="/appointments/<%=appointment._id%>" style="text-decoration:none">Cancel</a></button>
 </section>
-
-<h3>Delete Appointment? (Cannot be undone)</h3>
-<form method="POST" action="/appointments/<%= appointment._id %>?_method=DELETE">
-    <button>Delete</button>
-</form>
-<a href="/appointments/<%=appointment._id%>">Cancel</a>
 
 <%- include("../partials/footer") %>

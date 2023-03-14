@@ -42,16 +42,16 @@ const create = async (req,res) => {
     } catch (err) {
         const context = {msg: err}
         res.render("users/new", context)
-        console.log(err)
     }
 }
 
 const seed = async (user) => {
         bcrypt.hash(user.password, saltRounds, async (err, hash) => {
             user.password = hash;
-            user.save()
+            await user.save()
         })
     }
+
 
 const logout = (req,res) => {
     req.session.userid = "";

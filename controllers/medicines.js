@@ -9,16 +9,25 @@ const newMedicine = async (req,res) => {
     res.render("medicines/new", context)
 };
 
-const create = (req,res) => {
-    Medicine.create(req.body);
-    res.redirect("medicines/new")
-};  
+const create = async (req,res) => {
+    try {
+        const medicine = await Medicine.create(req.body);
+        res.redirect("/medicines/new")
+    } catch (err) {
+        res.redirect("/medicines/new")
+    }
+    };     
 
 const addToMedicine = async (req,res) => {
-    const appointment = await Appointment.findById(req.params.id).exec();
-    appointment.medicine.push(req.body.medicineName);
-    appointment.save();
-    res.redirect(`/appointments/${appointment._id}`)
+        if (req.body.medicineName) {
+        const appointment = await Appointment.findById(req.params.id).exec();
+        appointment.medicine.push(req.body.medicineName);
+        await appointment.save();
+        res.redirect(`/appointments/${appointment._id}`)
+    } else {
+        const appointment = await Appointment.findById(req.params.id).exec();
+        res.redirect(`/appointments/${appointment._id}`)
+    }
 };
 
 
