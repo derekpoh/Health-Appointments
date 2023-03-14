@@ -3,6 +3,7 @@
 
 <section class="medlist">
 <h1>Medicine List</h1>
+<% if (medicines.length) { %>
 <table id="badge-container" >
     <thead>
         <tr>
@@ -17,12 +18,17 @@
                 <td><%= m.name %></td>
                 <td><%= m.regimen %></td>
                 <td><%= m.speciality %></td>
+                <td id="mainpage"><a href="/medicines/<%= m._id %>/edit">Update</a></td>
+                <td id="mainpage"><a href="/medicines/<%= m._id %>/delete">Delete</a></td>
             </tr>
-        <% }) %>
+            <% }) 
+        } else { %>
+            <h1 id="nomeds">No meds </h1>
+       <% } %>
     </tbody>
 </table>
 </section>
-
+<br><br><br><br><br><br><br><br><br><br>
 <%= msg %>
 <section class="medlist">
 <h1>Add Medicine</h1>
@@ -43,7 +49,7 @@
               <option value="Nephrology">Nephrology</option>
             </select> </label>
       <br/>
-      <input type="submit" value="Add Medicine">
+      <input type="submit" value="Add">
 <br><br>
   </form>
 </fieldset>

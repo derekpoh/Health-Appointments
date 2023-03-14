@@ -59,6 +59,19 @@ const logout = (req,res) => {
     res.redirect("/")
 }
 
+const patientList = async (req,res) => {
+    const patients = await User.find({occupation: "patient"}).exec();
+    const patient = await User.findOne({_id: req.session.userid}).exec();
+    const context = {title:"Patient List" , patients, patient};
+    console.log(patient);
+    res.render("users/patients", context)
+}
+
+const selectPatient = async (req,res) => {
+    const patient = await User.findById(req.params.id).exec();
+    req.session.userid = patient._id;
+    res.redirect("/appointments/")
+}
 
 module.exports = {
     index,
@@ -66,4 +79,6 @@ module.exports = {
     create,
     login,
     logout,
+    patientList,
+    selectPatient,
 }

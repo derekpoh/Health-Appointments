@@ -29,6 +29,15 @@ body > nav {
   right: 50px
 }
 
+#newappointment {
+  font-size: 24px;
+}
+
+#nomeds {
+  text-align: center;
+  height: 14vh;
+  }
+
 nav > a {
   margin: 20px;
   text-decoration: none;
@@ -57,13 +66,9 @@ nav > a.active {
 
 #add-appointments-form *,
 #add-medicine-form * {
-  font-size: 20px;
+  font-size: 18px;
   padding: 5px;
   border-radius: 5px;
-}
-
-table {
-  font-size: 20px;
 }
 
 #visit {

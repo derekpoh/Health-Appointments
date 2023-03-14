@@ -2,6 +2,7 @@
 
 <section class="appointmentlist">
 <h1>Appointment List</h1>
+<% if (appointments.length) { %>
 <table id="badge-container" >
     <thead>
         <tr>
@@ -21,7 +22,10 @@
                 <td id="mainpage"><a href="/appointments/<%= a._id %>">Details</a></td>
                 <td id="mainpage"><a href="/appointments/<%= a._id %>/edit">Update Date/Timeslot</a></td>
             </tr>
-        <% }) %>
+            <% }) 
+        } else { %>
+            <h1 id="nomeds">No appointments</h1>
+       <% } %>
     </tbody>
 </table>
 </section>

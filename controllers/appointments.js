@@ -1,9 +1,11 @@
-const Appointment = require("../models/appointment")
-const Medicine = require("../models/medicine")
+const Appointment = require("../models/appointment");
+const Medicine = require("../models/medicine");
+const User = require("../models/user")
 
 
 const index = async (req,res) => {
-    const appointments = await Appointment.find().exec()
+    const user = await User.findOne({_id: req.session.userid}).populate("appointment").exec()
+    const appointments = user.appointment
     const context = {title:"All Appointments", appointments}
     res.render("appointments/index", context)
 }
@@ -14,8 +16,11 @@ const newAppointment = (req,res) => {
 
 const create = async (req,res) => {
     try {
-    await Appointment.create(req.body);
-    res.redirect("/appointments/");
+        const user = await User.findOne({_id: req.session.userid});
+        const appointment = await Appointment.create(req.body);
+        user.appointment.push(appointment._id);
+        await user.save()
+        res.redirect("/appointments/");
     } catch (err) {
         res.redirect("/appointments/new");
     }
@@ -49,7 +54,11 @@ const deletePrompt = async (req,res) => {
 };
 
 const deleteAppointment = async (req,res) => {
+    const user = await User.findOne({_id: req.session.userid});
     const appointment = await Appointment.findByIdAndDelete(req.params.id).exec();
+    const spliceNumber = user.appointment.indexOf(appointment._id);
+    user.appointment.splice(spliceNumber, 1);
+    await user.save();
     res.redirect("/appointments/");
 }
 
@@ -60,16 +69,11 @@ const edit = async (req,res) => {
 }
 
 const update = async (req,res) => {
-    try {
         for (let key in req.body) {
             if (req.body[key] === "") delete req.body[key];
           }
         const appointment = await Appointment.findByIdAndUpdate(req.params.id, req.body, {new:true}).exec();
         res.redirect("/appointments/");
-    } catch (err) {
-        console.log("error")
-        res.redirect("/appointments/");
-    }
 }
 
 

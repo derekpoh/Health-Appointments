@@ -1,0 +1,29 @@
+<%- include("../partials/header") %>
+
+<%= msg %>
+<section class="medlist">
+<h1>Update Medicine</h1>
+<form id="add-medicine-form" action="/medicines/<%= medicine._id %>?_method=PUT" method="post">
+    <fieldset>
+        <label>Name: <input value="<%= medicine.name %>" autocomplete="off" name="name" type="text"/></label>
+        <br/>
+        <label>Regimen: <input value="<%= medicine.regimen %>" autocomplete="off" name="regimen" type="text"/></label>
+        <br/>
+        <label>Speciality:
+            <select name="speciality">
+              <option value="Cardiology" <%= medicine.speciality === "Cardiology" ? "selected":"" %>>Cardiology</option>
+              <option value="Endocrine" <%= medicine.speciality === "Endocrine" ? "selected":"" %>>Endocrine</option>
+              <option value="Gastroenterology" <%= medicine.speciality === "Gastroenterology" ? "selected":"" %>>Gastroenterology</option>
+              <option value="Infectious Disease" <%= medicine.speciality === "Infectious Disease" ? "selected":"" %>>Infectious Disease</option>
+              <option value="Neurology" <%= medicine.speciality === "Neurology" ? "selected":"" %>>Neurology</option>
+              <option value="Pain Management" <%= medicine.speciality === "Pain Management" ? "selected":"" %>>Pain Management</option>
+              <option value="Nephrology" <%= medicine.speciality === "Nephrology" ? "selected":"" %>>Nephrology</option>
+            </select> </label>
+      <br/><br>
+      <input type="submit" value="Update">
+  </form>
+  <button ><a href="/medicines/new" style="text-decoration:none">Cancel</a></button>
+</fieldset>
+</section>
+
+<%- include("../partials/footer") %>

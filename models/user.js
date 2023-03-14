@@ -16,6 +16,14 @@ const userSchema = new Schema(
             type: String,
             required: true
         },
+        appointment: [{
+            type: Schema.Types.ObjectId,
+            ref: "Appointment"
+        }],
+        medicine: [{
+            type: Schema.Types.ObjectId,
+            ref: "Medicine"
+        }],
     }, {
         timestamps: true
     })

@@ -3,7 +3,7 @@ const router = express.Router();
 
 const appointmentsCtrl = require("../controllers/appointments")
 
-const isAuth = async (req,res,next) => {
+const loginAuth = async (req,res,next) => {
     if (req.session.userid) {
         next()
     } else {
@@ -19,18 +19,18 @@ const occupationAuth = async (req,res,next) => {
     }
 }
 
-router.get("/", isAuth, appointmentsCtrl.index);
-router.get("/new", isAuth, appointmentsCtrl.new);
-router.post("/", isAuth, appointmentsCtrl.create);
-router.get("/:id", isAuth, appointmentsCtrl.show);
+router.get("/", loginAuth, appointmentsCtrl.index);
+router.get("/new", loginAuth, appointmentsCtrl.new);
+router.post("/", loginAuth, appointmentsCtrl.create);
+router.get("/:id", loginAuth, appointmentsCtrl.show);
 
-router.post("/:id/visits", isAuth, occupationAuth, appointmentsCtrl.addVisit);
+router.post("/:id/visits", loginAuth, occupationAuth, appointmentsCtrl.addVisit);
 
-router.get("/:id/delete", isAuth, appointmentsCtrl.deletePrompt);
-router.delete("/:id", isAuth, appointmentsCtrl.delete);
+router.get("/:id/delete", loginAuth, appointmentsCtrl.deletePrompt);
+router.delete("/:id", loginAuth, appointmentsCtrl.delete);
 
-router.get("/:id/edit", isAuth, appointmentsCtrl.edit);
-router.put("/:id", isAuth, appointmentsCtrl.update)
+router.get("/:id/edit", loginAuth, appointmentsCtrl.edit);
+router.put("/:id", loginAuth, appointmentsCtrl.update)
 
 
 module.exports = router;
