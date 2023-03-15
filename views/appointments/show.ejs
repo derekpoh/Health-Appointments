@@ -1,17 +1,18 @@
 <%- include("../partials/header") %>
 
-<h1>Appointment Details</h1> 
+<h1 id="newappointment">Appointment Details 
+    <img src="https://static.vecteezy.com/system/resources/previews/004/698/190/original/calendar-business-date-time-icon-symbol-hand-drawn-cartoon-art-illustration-vector.jpg"></h1> 
 
 <section id="badge-container"> 
-    <div>Institution:</div>
-    <div><%= appointment.institution %></div><br/>
-    <div>Speciality:</div>
-    <div><%= appointment.speciality %></div><br/>
-    <div>Date:</div>
-    <div><%= appointment.date.toDateString() %></div><br/>
-    <div>Time Slot:</div>
-    <div><%=appointment.timeslot  %></div>
+    <div><strong>Institution</strong>: <%= appointment.institution %></div>
     <br/>
+    <div><strong>Speciality</strong>: <%= appointment.speciality %></div>
+    <br/>
+    <div><strong>Date</strong>: <%= appointment.date.toDateString() %></div>
+    <br/>
+    <div><strong>Time Slot</strong>: <%=appointment.timeslot  %></div>
+    <br/>
+    <br>
     <div>Medicine:</div>
     <ul>
         <%- appointment.medicine.map(m =>
@@ -41,7 +42,8 @@
     <% if (appointment.visit.length) { %>
     <table id="visit">
         <tbody id="visit">     
-               <% appointment.visit.forEach((v) => { %>
+               <% const reverseArray = appointment.visit.reverse();
+                 reverseArray.forEach((v) => { %>
                 <tr id="visit">
                     <td id="visit"> <%= v.content %> </td>
                     <td id="visitdate"> <%= v.createdAt.toDateString() %> </td>

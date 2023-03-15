@@ -2,7 +2,9 @@
 
 
 <section class="medlist">
-<h1>Medicine List</h1>
+<h1 id="medlist">Medicine List 
+    <img src="https://img.freepik.com/premium-vector/medicine-jar-pills-strip-cartoon-icon-illustration-healthcare-medicine-icon-concept-isolated-premium-flat-cartoon-style_138676-1621.jpg?w=2000">
+</h1>
 <% if (medicines.length) { %>
 <table id="badge-container" >
     <thead>
@@ -18,12 +20,12 @@
                 <td><%= m.name %></td>
                 <td><%= m.regimen %></td>
                 <td><%= m.speciality %></td>
-                <td id="mainpage"><a href="/medicines/<%= m._id %>/edit">Update</a></td>
-                <td id="mainpage"><a href="/medicines/<%= m._id %>/delete">Delete</a></td>
+                <td><a id="mainpage" href="/medicines/<%= m._id %>/edit" >Update</a></td>
+                <td><a id="mainpage" href="/medicines/<%= m._id %>/delete">Delete</a></td>
             </tr>
             <% }) 
         } else { %>
-            <h1 id="nomeds">No meds </h1>
+            <h2 id="nomeds">No meds </h2>
        <% } %>
     </tbody>
 </table>
@@ -31,7 +33,7 @@
 <br><br><br><br><br><br><br><br><br><br>
 <%= msg %>
 <section class="medlist">
-<h1>Add Medicine</h1>
+<h1 id="addmed">Add Medicine</h1>
 <form id="add-medicine-form" action="/medicines" method="post">
     <fieldset>
         <label>Name: <input autocomplete="off" name="name" type="text"/></label>
@@ -49,7 +51,7 @@
               <option value="Nephrology">Nephrology</option>
             </select> </label>
       <br/>
-      <input type="submit" value="Add">
+      <input  type="submit" value="Add">
 <br><br>
   </form>
 </fieldset>

@@ -1,8 +1,9 @@
 <%- include("../partials/header") %>
 
-<section class="medlist">
-    <h1>Patient List</h1>
-    <% if (patients.length) { %>
+<h1>Patient List <img src="https://img.freepik.com/premium-vector/clipboard-stethoscope-cartoon-design_579205-38.jpg">
+</h1>
+<% if (patients.length) { %>
+    <section class="medlist">
     <table  id="badge-container">
         <thead>
             <tr>
@@ -15,7 +16,7 @@
                     <td><%= p.userid %></td>
                     <td>
                         <nav>
-                        <a href="/users/patients/<%= p._id %>" >
+                        <a id="mainpage" href="/users/patients/<%= p._id %>" >
                             SELECT
                         </a>
                     </nav>

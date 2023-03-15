@@ -1,16 +1,16 @@
 <%- include("../partials/header") %>
 
-<h1>Delete Medicine</h1> 
+<h1>Delete Medicine
+    <img src="https://img.freepik.com/premium-vector/medicine-jar-pills-strip-cartoon-icon-illustration-healthcare-medicine-icon-concept-isolated-premium-flat-cartoon-style_138676-1621.jpg?w=2000">
+</h1> 
 <br/><br/>
 <section id="add-medicine-form"> 
-    <div>Name:</div>
-    <div><%= medicine.name %></div><br/>
-    <div>Regimen:</div>
-    <div><%= medicine.regimen %></div><br/>
-    <div>Speciality:</div>
-    <div><%= medicine.speciality %></div><br/>
+    <div><strong>Name</strong>: <%= medicine.name %></div>
     <br/>
-    
+    <div><strong>Regimen</strong>: <%= medicine.regimen %></div>
+    <br/>
+    <div><strong>Speciality</strong>: <%= medicine.speciality  %></div>
+    <br/>
     <h3>Delete Medicine? (Cannot be undone)</h3>
     <form method="POST" action="/medicines/<%= medicine._id %>?_method=DELETE" id="form">
         <input type="submit" value="Delete">

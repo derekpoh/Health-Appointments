@@ -1,16 +1,16 @@
 <%- include("../partials/header") %>
 
-<h1>Appointment Details</h1> 
+<h1 >Appointment Details
+     <img src="https://static.vecteezy.com/system/resources/previews/004/698/190/original/calendar-business-date-time-icon-symbol-hand-drawn-cartoon-art-illustration-vector.jpg"></h1> 
 <br/><br/>
 <section id="add-medicine-form"> 
-    <div>Institution:</div>
-    <div><%= appointment.institution %></div><br/>
-    <div>Speciality:</div>
-    <div><%= appointment.speciality %></div><br/>
-    <div>Date:</div>
-    <div><%= appointment.date.toDateString() %></div><br/>
-    <div>Time Slot:</div>
-    <div><%=appointment.timeslot  %></div>
+    <div><strong>Institution</strong>: <%= appointment.institution %></div>
+    <br/>
+    <div><strong>Speciality</strong>: <%= appointment.speciality %></div>
+    <br/>
+    <div><strong>Date</strong>: <%= appointment.date.toDateString() %></div>
+    <br/>
+    <div><strong>Time Slot</strong>: <%=appointment.timeslot  %></div>
     <br/>
     
     <h3>Delete Appointment? (Cannot be undone)</h3>

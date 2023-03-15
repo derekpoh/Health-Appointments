@@ -1,8 +1,9 @@
 <%- include("../partials/header") %>
 
-<section class="appointmentlist">
-<h1>Appointment List</h1>
-<% if (appointments.length) { %>
+<h1>Appointment List 
+    <img src="https://static.vecteezy.com/system/resources/previews/004/698/190/original/calendar-business-date-time-icon-symbol-hand-drawn-cartoon-art-illustration-vector.jpg"> </h1> 
+    <% if (appointments.length) { %>
+        <section class="appointmentlist">
 <table id="badge-container" >
     <thead>
         <tr>
@@ -19,12 +20,12 @@
                 <td><%= a.speciality %></td>
                 <td><%= a.date.toDateString() %></td>
                 <td><%= a.timeslot %></td>
-                <td id="mainpage"><a href="/appointments/<%= a._id %>">Details</a></td>
-                <td id="mainpage"><a href="/appointments/<%= a._id %>/edit">Update Date/Timeslot</a></td>
+                <td ><a id="mainpage" href="/appointments/<%= a._id %>">Details</a></td>
+                <td ><a id="mainpage" href="/appointments/<%= a._id %>/edit">Update Date/Timeslot</a></td>
             </tr>
             <% }) 
         } else { %>
-            <h1 id="nomeds">No appointments</h1>
+            <h2 id="nomeds">No appointments</h2>
        <% } %>
     </tbody>
 </table>

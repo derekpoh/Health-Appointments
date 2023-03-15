@@ -6,10 +6,19 @@
 
 body {
   margin: 0;
+  background-color: rgba(245, 245, 220, 0.5)
+}
+
+img {
+  height: 50px;
+  border-radius: 100%;
+  padding: 5px
 }
 
 h1 {
-  padding-left: 10px
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
 }
 
 h3 {
@@ -27,10 +36,6 @@ body > nav {
 #welcome {
   position: absolute;
   right: 50px
-}
-
-#newappointment {
-  font-size: 24px;
 }
 
 #nomeds {
@@ -72,12 +77,12 @@ nav > a.active {
 }
 
 #visit {
-  font-size: 15px;
+  font-size: 18px;
   border: 1px solid black;
 }
 
 #visitdate {
-  font-size: 10px;
+  font-size: 15px;
   border: 1px solid black;
 }
 
@@ -114,4 +119,25 @@ table td {
 
 #mainpage {
   font-size: 15px;
+  text-decoration: none;
+  color: white;
+  background-color: orangered;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#mainpage:hover:not(.active) {
+  color: white;
+  background-color: #424748;
+}
+
+#medlist {
+  font-size: 32px;
+  padding: 19px 16px 16px 15px;
+  display: flex;
+  align-items: center;
+}
+
+#addmed {
+  font-size: 25px;
 }
