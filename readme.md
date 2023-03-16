@@ -62,17 +62,17 @@ Upon logging in, each user will be able to view their own medical appointments a
 
 ![appointment_list](readme_resources/Appointment_List.png)
 
-
+<br>
 Users would be able to ammend each appointment as desired, which includes a more detailed view of each appointment.
 
 ![appointment_details](readme_resources/Appointment_Detail.png)
 
-
+<br>
 Some features require varying authorisation levels to access. (E.g. Only doctors can ammend the medicine list)
 
 ![medicine_list](readme_resources/Medicine_List.png)
 
-
+<br>
 Doctors are able to access different patient information using the patient list.
 
 ![patient_list](readme_resources/Patient_List.png)
