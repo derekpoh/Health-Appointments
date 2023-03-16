@@ -36,6 +36,7 @@ To emulate the application, I navigated around HealthBuddy to understand the ser
 I used the MVC approach for this application, separating "views", "models", "routes" and "controllers" into different compartments. Data manipulation was done within "models" and "controllers" to render the "views" at the frontend.
 
 
+
 ## User Stories
 | As a User, when...                       |  I want to be able to...                
 | :--------------------------------------- |:-----------------------------------------------|
@@ -43,7 +44,7 @@ I used the MVC approach for this application, separating "views", "models", "rou
 | Viewing the Appointment page details     |  - See more details about that specific appointment<br>- Update the appointment details<br>- Add medicines related to the appointment
 | Accessing the Add Appointments page      |  See a drop-list of institutions, speciality and date
 | Accessing the Add Medicine page          |  Add medicine and speciality to a list of existing medicines
-| Viewing the Patient List (Doctors only)  |  - See a list of all the patients<br>-Select a patient to access more patient specific information<br>Select different patients
+| Viewing the Patient List (Doctors only)  |  - See a list of all the patients<br>- Select a patient to access more patient specific information<br>- Select different patients
 
 
 ## Development Approach
@@ -55,17 +56,25 @@ I broke down the process into several main components:
   * Part 5: Implement authentication and authorisation for different user types
 
 
+
 ## Breakdown of some features
 Upon logging in, each user will be able to view their own medical appointments and medicine list.
+
 ![appointment_list](readme_resources/Appointment_List.png)
 
+
 Users would be able to ammend each appointment as desired, which includes a more detailed view of each appointment.
-![appointment_details](readme_resources/Appointment_Details.png)
+
+![appointment_details](readme_resources/Appointment_Detail.png)
+
 
 Some features require varying authorisation levels to access. (E.g. Only doctors can ammend the medicine list)
+
 ![medicine_list](readme_resources/Medicine_List.png)
 
+
 Doctors are able to access different patient information using the patient list.
+
 ![patient_list](readme_resources/Patient_List.png)
 
 
