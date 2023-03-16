@@ -58,22 +58,27 @@ I broke down the process into several main components:
 
 
 ## Breakdown of some features
+<br>
 Upon logging in, each user will be able to view their own medical appointments and medicine list.
+<br>
 <br>
 ![appointment_list](readme_resources/Appointment_List.png)
 <br>
 <br>
 Users would be able to ammend each appointment as desired, which includes a more detailed view of each appointment.
 <br>
+<br>
 ![appointment_details](readme_resources/Appointment_Detail.png)
 <br>
 <br>
 Some features require varying authorisation levels to access. (E.g. Only doctors can ammend the medicine list)
 <br>
+<br>
 ![medicine_list](readme_resources/Medicine_List.png)
 <br>
 <br>
 Doctors are able to access different patient information using the patient list.
+<br>
 <br>
 ![patient_list](readme_resources/Patient_List.png)
 <br>
