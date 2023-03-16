@@ -10,7 +10,7 @@ const medicineSchema =  new Schema (
         speciality: {
             type: String,
             required: true,
-
+            enum: ["Cardiology", "Endocrine", "Gastroenterology", "Infectious Disease", "Neurology", "Pain Management", "Nephrology"]
         },
         regimen: {
             type: String,

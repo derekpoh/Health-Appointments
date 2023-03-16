@@ -1,13 +1,12 @@
 <%- include("../partials/header") %>
 
-<%= msg %>
 <h1>Update Medicine
-  <img src="https://img.freepik.com/premium-vector/medicine-jar-pills-strip-cartoon-icon-illustration-healthcare-medicine-icon-concept-isolated-premium-flat-cartoon-style_138676-1621.jpg?w=2000">
+  <img id="img" src="https://img.freepik.com/premium-vector/medicine-jar-pills-strip-cartoon-icon-illustration-healthcare-medicine-icon-concept-isolated-premium-flat-cartoon-style_138676-1621.jpg?w=2000">
 </h1>
 <section class="medlist">
 <form id="add-medicine-form" action="/medicines/<%= medicine._id %>?_method=PUT" method="post">
     <fieldset>
-        <label>Name: <input value="<%= medicine.name %>" autocomplete="off" name="name" type="text"/></label>
+        <label>Name: <input value="<%= medicine.name %>" autocomplete="off" name="name" type="text"/> <a id="msg"><%= msg %></a></label>
         <br/>
         <label>Regimen: <input value="<%= medicine.regimen %>" autocomplete="off" name="regimen" type="text"/></label>
         <br/>

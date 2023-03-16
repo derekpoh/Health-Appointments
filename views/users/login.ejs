@@ -7,22 +7,22 @@
   <title>Project 2</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-<body>
+<body >
 
+<img id="login" src="https://www.linkpicture.com/q/img_49.png">
+<section id="form">
 <h2>Login</h2>
-
 <h3><%= msg %></h3>
 <form action="/users/login" method="post">
-  <fieldset>
-    <legend>Login</legend>
+  
     <label>Userid: <input autocomplete="off" name="userid" /></label>
     <br />
     <label>Password: <input autocomplete="off" name="password" /></label>
     <button>Login</button>
-  </fieldset><br><br>
-  
+<br><br>
   <a href = "/users/login/create">Create account</a>
 </form>
+</section>
 
 </body>
 </html>

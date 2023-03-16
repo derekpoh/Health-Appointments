@@ -3,7 +3,7 @@
 
 <section class="medlist">
 <h1 id="medlist">Medicine List 
-    <img src="https://img.freepik.com/premium-vector/medicine-jar-pills-strip-cartoon-icon-illustration-healthcare-medicine-icon-concept-isolated-premium-flat-cartoon-style_138676-1621.jpg?w=2000">
+    <img id="img" src="https://img.freepik.com/premium-vector/medicine-jar-pills-strip-cartoon-icon-illustration-healthcare-medicine-icon-concept-isolated-premium-flat-cartoon-style_138676-1621.jpg?w=2000">
 </h1>
 <% if (medicines.length) { %>
 <table id="badge-container" >
@@ -31,12 +31,12 @@
 </table>
 </section>
 <br><br><br><br><br><br><br><br><br><br>
-<%= msg %>
+
 <section class="medlist">
 <h1 id="addmed">Add Medicine</h1>
 <form id="add-medicine-form" action="/medicines" method="post">
     <fieldset>
-        <label>Name: <input autocomplete="off" name="name" type="text"/></label>
+        <label>Name: <input autocomplete="off" name="name" type="text"/> <a id="msg"><%= msg %></a></label>
         <br/>
         <label>Regimen: <input autocomplete="off" name="regimen" type="text"/></label>
         <br/>

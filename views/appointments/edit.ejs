@@ -1,12 +1,12 @@
 <%- include("../partials/header") %>
 
 <h1>Edit Appointment 
-  <img src="https://static.vecteezy.com/system/resources/previews/004/698/190/original/calendar-business-date-time-icon-symbol-hand-drawn-cartoon-art-illustration-vector.jpg">
+  <img id="img" src="https://static.vecteezy.com/system/resources/previews/004/698/190/original/calendar-business-date-time-icon-symbol-hand-drawn-cartoon-art-illustration-vector.jpg">
 </h1>
 
 <fieldset id="add-medicine-form">
 <form action="/appointments/<%= appointment._id %>?_method=PUT" method="POST" id="form">
-             <label>Date: <input name="date" type="date" value=""/></label>
+             <label>Date: <input name="date" type="date" value=""/> <a id="msg"><%= msg %></a> </label>
              <br/>
              <label>Time slot:
               <select name="timeslot">
@@ -22,7 +22,6 @@
       <br/>
       <input type="submit" value="Update Appointment">
     </form>
-    <button id="cancelbutton"><a href="/appointments/" style="text-decoration:none">Cancel</a></button>
 </fieldset>
 
 

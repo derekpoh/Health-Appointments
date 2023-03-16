@@ -19,9 +19,12 @@ const create = async (req,res) => {
         await user.save();
         res.redirect("/medicines/new")
     } catch (err) {
-        res.redirect("/medicines/new")
+        const user = await User.findOne({_id: req.session.userid}).populate("medicine").exec();
+        const medicines = user.medicine
+        const context = {title:"Medicine List", msg:"NAME/REGIMEN REQUIRED", medicines}
+        res.render("medicines/new", context)
     }
-    };     
+};     
 
 const addToMedicine = async (req,res) => {
     if (req.body.medicineName) {
@@ -42,13 +45,17 @@ const edit = async (req,res) => {
 }
 
 const update = async (req,res) => {
-    for (let key in req.body) {
-        req.body.name = req.body.name.trim();
-        req.body.regimen = req.body.regimen.trim();
-        if (req.body[key] === "") return res.redirect("/medicines/new");
-      }
-    const medicine = await Medicine.findByIdAndUpdate(req.params.id, req.body, {new:true}).exec();
-    res.redirect("/medicines/new");
+    const opts = {runValidators:true};
+    req.body.name = req.body.name.trim();
+    req.body.regimen = req.body.regimen.trim();
+    try {
+        const medicine = await Medicine.findByIdAndUpdate(req.params.id, req.body, opts).exec();
+        res.redirect("/medicines/new");
+    } catch (err) {
+        const medicine = await Medicine.findById(req.params.id);
+        const context = {title:"Medicine List", msg:"NAME/REGIMEN REQUIRED", medicine}
+        res.render("medicines/edit", context)
+    }
 }
 
 const deletePrompt = async (req,res) => {

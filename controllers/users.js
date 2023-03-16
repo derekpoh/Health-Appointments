@@ -63,7 +63,6 @@ const patientList = async (req,res) => {
     const patients = await User.find({occupation: "patient"}).exec();
     const patient = await User.findOne({_id: req.session.userid}).exec();
     const context = {title:"Patient List" , patients, patient};
-    console.log(patient);
     res.render("users/patients", context)
 }
 
