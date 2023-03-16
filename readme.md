@@ -19,7 +19,7 @@ Developed by the SingHealth Group, the HealthBuddy App provides a convenient pla
 
 Incorporating many extensive and complicated features into the application usually entails considerable amount of bugs and issues. This problem becomes fairly evident through the app ratings and reviews. By emulating a small part of HealthBuddy, my aim was to gain a better understanding of the complex structures involving the backend servers and databases, as well as the difficulties encountered during debugging.
 
-![login](readme_resource/Login.png)
+![login](readme_resources/Login.png)
 
 
 ## Deployment
@@ -30,8 +30,8 @@ https://clumsy-deer-earrings.cyclic.app
 ## Project Architecture
 To emulate the application, I navigated around HealthBuddy to understand the services and utilities it offered. After handpicking several important features of the application, I crafted my data model and wireframe to base my project upon.
 
-![model](readme_resource/model.jpg)
-![wireframe](readme_resource/wireframe.jpg)
+![model](readme_resources/model.jpg)
+![wireframe](readme_resources/wireframe.jpg)
 
 I used the MVC approach for this application, separating "views", "models", "routes" and "controllers" into different compartments. Data manipulation was done within "models" and "controllers" to render the "views" at the frontend.
 
@@ -57,16 +57,16 @@ I broke down the process into several main components:
 
 ## Breakdown of some features
 Upon logging in, each user will be able to view their own medical appointments and medicine list.
-![appointment_list](readme_resource/Appointment_List.png)
+![appointment_list](readme_resources/Appointment_List.png)
 
 Users would be able to ammend each appointment as desired, which includes a more detailed view of each appointment.
-![appointment_details](readme_resource/Appointment_Details.png)
+![appointment_details](readme_resources/Appointment_Details.png)
 
 Some features require varying authorisation levels to access. (E.g. Only doctors can ammend the medicine list)
-![medicine_list](readme_resource/Medicine_List.png)
+![medicine_list](readme_resources/Medicine_List.png)
 
 Doctors are able to access different patient information using the patient list.
-![patient_list](readme_resource/Patient_List.png)
+![patient_list](readme_resources/Patient_List.png)
 
 
 ## Key Learning Points
